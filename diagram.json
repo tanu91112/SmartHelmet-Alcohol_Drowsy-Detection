@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "author": "Lavi",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-nano", "id": "nano", "top": -4.8, "left": -0.5, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -126.1, "left": 182.2, "attrs": {} },
+    { "type": "wokwi-mpu6050", "id": "imu2", "top": -120.98, "left": -132.08, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": 82.8, "left": 282.2, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 82.8,
+      "left": -101.8,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 119.15,
+      "left": -48,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 128.75,
+      "left": 201.6,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -141.6,
+      "left": 40.2,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "pot1:GND", "nano:GND.2", "black", [ "v0" ] ],
+    [ "pot1:VCC", "nano:5V", "red", [ "v0" ] ],
+    [ "pot1:SIG", "nano:A0", "green", [ "v0" ] ],
+    [ "imu2:VCC", "nano:5V", "red", [ "v0" ] ],
+    [ "imu2:GND", "nano:GND.2", "black", [ "v0" ] ],
+    [ "imu2:SCL", "nano:A5", "green", [ "v0" ] ],
+    [ "imu2:SDA", "nano:A4", "green", [ "v0" ] ],
+    [ "led2:C", "nano:GND.2", "green", [ "v0" ] ],
+    [ "led2:A", "r1:1", "green", [ "v0" ] ],
+    [ "r1:2", "nano:4", "green", [ "v0" ] ],
+    [ "led1:C", "nano:GND.2", "green", [ "v0" ] ],
+    [ "led1:A", "r2:2", "green", [ "v0" ] ],
+    [ "nano:3", "r2:1", "green", [ "v0" ] ],
+    [ "bz1:1", "nano:GND.2", "green", [ "v0" ] ],
+    [ "bz1:2", "nano:5", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
